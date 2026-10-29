@@ -3029,7 +3029,7 @@ export function CommandBuilder({ recipe, strategies, taxonomy, contextNotes = []
                     : !brandOk
                     ? `Mooncake's transfer engine ships CUDA and ROCm builds only — not available on ${hwProfile.brand || ""} ${hwProfile.display_name || hwId} backends.`
                     : !hwScalable
-                      ? `${hwProfile.display_name || "This hardware"} is a single-GPU workstation and can't run a multi-node KV-store deployment.`
+                      ? `${hwProfile.display_name || "This hardware"} is a single-node profile; multi-node KV-store deployments are not enabled.`
                       : `Mooncake KV store is not supported on ${hwProfile.display_name || hwId}.`;
                   pills.push({
                     order: MOONCAKE_PILL_ORDER,
@@ -3256,7 +3256,7 @@ export function CommandBuilder({ recipe, strategies, taxonomy, contextNotes = []
                           ? isXpuHardware
                             ? "Multi-node clustering isn't validated on Intel XPU — serve single-node with the Docker image."
                             : !hwScalable
-                            ? `${hwProfile.display_name || "This hardware"} is a single-GPU workstation and can't be clustered into multiple nodes.`
+                            ? `${hwProfile.display_name || "This hardware"} is a single-node profile; multi-node deployment is not enabled.`
                             : "This recipe does not declare a multi-node strategy. Fits in a single node."
                           : noMultiNodeStrategy
                             ? `This recipe runs single-node on ${hwProfile.display_name || "this hardware"} — no multi-node strategy here. Disaggregated PD sizes its own pools.`

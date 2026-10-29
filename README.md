@@ -3,6 +3,27 @@
 This repo intends to host community maintained common recipes to run vLLM answering the question:
 **How do I run model X on hardware Y for task Z?**
 
+## RTX 3090 fork branch
+
+The `sm86-rtx3090-tuning` branch is the companion renderer for
+[ai-yang/vllm's matching branch](https://github.com/ai-yang/vllm/tree/sm86-rtx3090-tuning).
+It adds restricted single-card and four-card RTX 3090 hardware profiles and
+corrects the single-node control explanations.
+
+`sources.yaml` selects the matching vLLM fork branch; `sources.lock.json` pins
+the exact recipe commit. The other upstream sources retain their existing pins.
+No local source override is needed to load the published 3090 recipes:
+
+```bash
+pnpm install --frozen-lockfile
+pnpm dev
+```
+
+Open `/Qwen/Qwen3-8B` and select the RTX 3090 profile. Runtime tuning and
+TP/DP sweep instructions live in the vLLM branch's
+[`tools/recipes/`](https://github.com/ai-yang/vllm/tree/sm86-rtx3090-tuning/tools/recipes).
+This fork does not change the public `recipes.vllm.ai` deployment.
+
 ## Guides
 
 ### Arcee AI <img src="https://cdn-avatars.huggingface.co/v1/production/uploads/6435718aaaef013d1aec3b8b/GZPnGkfMn8Ino6JbkL4fJ.png" alt="Arcee AI" width="16" height="16" style="vertical-align:middle;">

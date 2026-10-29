@@ -32,8 +32,8 @@ default_channel: latest
 channels:
   latest:
     vllm:
-      repo: vllm-project/vllm
-      ref: main
+      repo: ai-yang/vllm
+      ref: sm86-rtx3090-tuning
       path: recipes
       role: core
       scope: { exclude_tasks: [omni] }
@@ -55,8 +55,8 @@ channels:
     # synced upstream and removed: the upstream version renders; a recipe
     # merged here that upstream doesn't have yet renders from here.
     recipes:
-      repo: vllm-project/recipes
-      ref: main
+      repo: ai-yang/recipes
+      ref: sm86-rtx3090-tuning
       path: .
       local: .
       role: owner
